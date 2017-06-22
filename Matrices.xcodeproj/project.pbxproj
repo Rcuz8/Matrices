@@ -10,6 +10,7 @@
 		94A0DC721EFB183D00E080DF /* Matrices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A0DC681EFB183D00E080DF /* Matrices.framework */; };
 		94A0DC771EFB183D00E080DF /* MatricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0DC761EFB183D00E080DF /* MatricesTests.swift */; };
 		94A0DC791EFB183D00E080DF /* Matrices.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0DC6B1EFB183D00E080DF /* Matrices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94A0DC831EFB187000E080DF /* Matrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0DC821EFB187000E080DF /* Matrice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		94A0DC711EFB183D00E080DF /* MatricesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatricesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A0DC761EFB183D00E080DF /* MatricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatricesTests.swift; sourceTree = "<group>"; };
 		94A0DC781EFB183D00E080DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94A0DC821EFB187000E080DF /* Matrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				94A0DC6B1EFB183D00E080DF /* Matrices.h */,
 				94A0DC6C1EFB183D00E080DF /* Info.plist */,
+				94A0DC821EFB187000E080DF /* Matrice.swift */,
 			);
 			path = Matrices;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 					94A0DC671EFB183D00E080DF = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7VAFMRYWYR;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					94A0DC701EFB183D00E080DF = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A0DC831EFB187000E080DF /* Matrice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +327,7 @@
 		94A0DC7D1EFB183D00E080DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7VAFMRYWYR;
@@ -334,6 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rcocuzzo8.Matrices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +348,7 @@
 		94A0DC7E1EFB183D00E080DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7VAFMRYWYR;
@@ -360,6 +368,7 @@
 		94A0DC801EFB183D00E080DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7VAFMRYWYR;
 				INFOPLIST_FILE = MatricesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +381,7 @@
 		94A0DC811EFB183D00E080DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7VAFMRYWYR;
 				INFOPLIST_FILE = MatricesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
