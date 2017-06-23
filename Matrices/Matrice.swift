@@ -19,6 +19,31 @@ class Matrice: NSObject {
         augmentedMatrix = augmented
     }
     
+    func rowOperation(changing: [Int], other: [Int], at: Int) -> [Int] {
+        var pos = 0
+        var changed = changing
+        while pos < changing.count {
+            let otherOp = (other[pos] * changing[at] * -1)
+            changed[pos] = changing[pos] + otherOp
+            
+            pos+=1
+        }
+        return changed
+    }
+    
+    func simplifyExpression(row: [Int], positionThatWillBeDivisor: Int) -> [Int] {
+        var newRow = row
+        //     print(row)
+        var pos = 0
+        let div = newRow[positionThatWillBeDivisor]
+        while pos < newRow.count {
+            
+            newRow[pos] = newRow[pos]/div
+            pos+=1
+        }
+        
+        return newRow
+    }
     
     func solve2X2Gaussian() -> [String: Int] {
         
@@ -42,66 +67,36 @@ class Matrice: NSObject {
         }
         
         // Step 1 --> Make first variable One
-        
-        var xRowOne = firstRow[0]
         var pos = 0
-        for number in  firstRow {
-            firstRow[pos] = number/xRowOne
-            pos+=1
-        }
-        
-        pos = 0
-        
+        firstRow = simplifyExpression(row: firstRow, positionThatWillBeDivisor: 0)
         printRows()
         
         // Step 2 --> Multply R-1 by Neg. R-2's x value, add it to each R-2 val
         
-        let xRowTwo = secondRow[0]
-        
-        while pos < firstRow.count {
-            var tempFirstRowVar = firstRow[pos]
-            tempFirstRowVar = tempFirstRowVar * xRowTwo * -1
-            secondRow[pos] = secondRow[pos]+tempFirstRowVar
-            pos+=1
-        }
+        secondRow = rowOperation(changing: secondRow, other: firstRow, at: 0)
+        printRows()
         
         pos = 0
         
-        printRows()
         
         // Step 3 --> Simplify
         
-        let step3divisor = secondRow[1]
+        secondRow = simplifyExpression(row: secondRow, positionThatWillBeDivisor: 1)
         
-        while pos < secondRow.count {
-            secondRow[pos] = secondRow[pos]/step3divisor
-            pos+=1
-        }
-        
-        pos = 0
-        
-        printRows()
         
         //  Step 4
         
         swapRows()
         
-        print("Before step 5")
         printRows()
         
         //Step 5
         
-        
-        let yRowTwo = secondRow[1]
-        
-        while pos < firstRow.count {
-            var tempFirstRowVar = firstRow[pos]
-            secondRow[pos] = secondRow[pos]+firstRow[pos]*yRowTwo * -1
-            pos+=1
-        }
+        secondRow = rowOperation(changing: secondRow, other: firstRow, at: 1)
         
         
-        printRows()
+        
+        //    printRows()
         
         // Step 6
         
@@ -117,6 +112,7 @@ class Matrice: NSObject {
         
         return answers
     }
+    
     
     
     
@@ -164,6 +160,24 @@ class Matrice: NSObject {
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
